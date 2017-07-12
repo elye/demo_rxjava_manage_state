@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Rx State</string>
+    <string name="status_done">Done</string>
+    <string name="status_loading">Loading...</string>
+    <string name="btn_txt_empty">Load\nEmpty</string>
+    <string name="btn_txt_success">Load\nSuccess</string>
+    <string name="btn_txt_error">Load\nError</string>
+</resources>

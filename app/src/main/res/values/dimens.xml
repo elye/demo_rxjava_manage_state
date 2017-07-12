@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="txt_display_size">24sp</dimen>
+    <dimen name="image_length">100dp</dimen>
+    <dimen name="standard_padding">16dp</dimen>
+</resources>
