@@ -1,9 +1,7 @@
 package com.elyeproj.rxstate.presenter
 
 import com.elyeproj.rxstate.model.UiStateModel
-import com.elyeproj.rxstate.presenter.DataSource.Companion.FETCH_EMPTY
-import com.elyeproj.rxstate.presenter.DataSource.Companion.FETCH_ERROR
-import com.elyeproj.rxstate.presenter.DataSource.Companion.FETCH_SUCCESS
+import com.elyeproj.rxstate.presenter.DataSource.FetchStyle.*
 import com.elyeproj.rxstate.view.MainView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
