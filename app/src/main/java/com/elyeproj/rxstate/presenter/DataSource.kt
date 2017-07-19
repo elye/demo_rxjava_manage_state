@@ -5,13 +5,12 @@ import io.reactivex.Observable
 
 class DataSource {
 
-    enum class FetchStyle {
-        FETCH_SUCCESS,
-        FETCH_EMPTY,
-        FETCH_ERROR
+    companion object {
+        val FETCH_ERROR = 0
+        val FETCH_SUCCESS = 1
+        val FETCH_EMPTY = 2
     }
-
-    var fetchStyle = FetchStyle.FETCH_ERROR
+    var fetchStyle : Int = FETCH_ERROR
 
     fun fetchData(): Observable<DataModel> {
         return Observable.create({
@@ -30,9 +29,11 @@ class DataSource {
     private fun loadData(): DataModel {
         Thread.sleep(2500)
         return when (fetchStyle) {
-            FetchStyle.FETCH_SUCCESS -> DataModel("Data Loaded")
-            FetchStyle.FETCH_EMPTY -> DataModel("")
-            FetchStyle.FETCH_ERROR -> throw IllegalStateException("Error Fetching")
+            FETCH_SUCCESS -> DataModel("Data Loaded")
+            FETCH_EMPTY -> DataModel("")
+            else -> {
+                throw IllegalStateException("Error Fetching")
+            }
         }
     }
 }

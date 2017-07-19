@@ -1,16 +1,16 @@
 package com.elyeproj.rxstate.presenter
 
 import com.elyeproj.rxstate.model.UiStateModel
-import com.elyeproj.rxstate.presenter.DataSource.FetchStyle.*
+import com.elyeproj.rxstate.presenter.DataSource.Companion.FETCH_EMPTY
+import com.elyeproj.rxstate.presenter.DataSource.Companion.FETCH_ERROR
+import com.elyeproj.rxstate.presenter.DataSource.Companion.FETCH_SUCCESS
 import com.elyeproj.rxstate.view.MainView
-import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class MainPresenter(val view: MainView) {
+class MainPresenter(val view: MainView, val dataSource: DataSource) {
 
-    private val dataSource = DataSource()
     private var disposable: Disposable? = null
 
     fun loadSuccess() {
@@ -29,7 +29,7 @@ class MainPresenter(val view: MainView) {
         loadData()
     }
 
-    private fun loadData() {
+    fun loadData() {
         disposable?.dispose()
 
         disposable = dataSource.fetchData()

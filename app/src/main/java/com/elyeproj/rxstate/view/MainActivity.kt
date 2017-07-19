@@ -5,12 +5,13 @@ import android.os.Bundle
 import com.elyeproj.rxstate.presenter.MainPresenter
 import com.elyeproj.rxstate.R
 import com.elyeproj.rxstate.model.DataModel
+import com.elyeproj.rxstate.presenter.DataSource
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainView {
 
     private val mainPresenter by lazy {
-        MainPresenter(this)
+        MainPresenter(this, DataSource())
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
